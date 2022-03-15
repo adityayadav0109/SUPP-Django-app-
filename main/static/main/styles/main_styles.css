@@ -1,0 +1,17 @@
+.nav-link{
+    font-size: large;
+    font-weight: bolder;
+}
+.nav-link:hover{
+    color: red;
+}
+/* #_navbar{
+    background-color: tomato;
+} */
+#_form_img{
+    /* background-image: url('{{ STATIC_URL }}main/img/.jpg'); */
+    background-color: gray;
+
+    /* https://stackoverflow.com/questions/39769469/the-way-to-use-background-image-in-css-files-with-django */
+    
+}

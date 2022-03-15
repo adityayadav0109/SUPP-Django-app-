@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}SUPP | NEWS{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+  
+  <div class="row">
+    
+
+    {% for i in articles %}
+
+    <div class="card col-sm-12 col-md-6 col-lg-4 col-xl-3">
+      <img src="{{ i.urlToImage }}" class="card-img-top" alt=""/>
+      <div class="card-body">
+        <h5 class="card-title">{{ i.title }}</h5>
+        <p class="card-text">{{ i.description}}</p>
+
+        <small class="text-center">Author: {{ i.author }}</small>
+        <br>
+        <a href="{{ i.url }}" class="btn btn-primary" target="_blank">View Full</a>
+      </div>
+    </div>
+
+
+    {% endfor %}
+
+  </div>
+</div>
+
+{% endblock content %}
+
+
+
+
+
+
+    
+  

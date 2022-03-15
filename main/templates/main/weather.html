@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}SUPP | WEATHER{% endblock title %}
+
+{% block content %}
+
+<section class="vh-100 bg-image" style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">WEATHER</h2>
+  
+                <form method="post">{% csrf_token %}
+  
+                  <div class="form-outline mb-4">
+                    <input type="text" id="form3Example1cg" name="city" placeholder="City" class="form-control form-control-lg" />
+                    <!-- <label class="form-label" for="form3Example1cg">Enter City Name</label> -->
+                  </div>
+  
+                  
+                  
+  
+                  <div class="d-flex justify-content-center">
+                    <button type="submit"  class="btn btn-primary btn-block btn-lg gradient-custom-4 text-body">Get INFO</button>
+                  </div>
+  
+                  
+                </form>
+                {% if context %}
+                  <div class="card text-white  mt-5" id="_weather_card">
+                    <img src="http://openweathermap.org/img/wn/{{ context.icon }}.png"  class="align-self-center" alt=""
+                    width="100px" 
+                    height="100px"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title text-center">{{ context.temp }}°C</h5>
+                      <h4 class="card-text text-center">{{ context.city }}</h4>
+                      <p class="card-text text-center">{{ context.desc }}</p>
+                      
+                    </div>
+                  </div>
+
+                {% else %}
+
+                  <h5 class="text-center mt-5">Enter Your City Name</h5>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
